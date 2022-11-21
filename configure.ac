@@ -37,7 +37,7 @@ AC_PROG_CC
 # compilers if you want C99 support. Starting with 2.70, it is obsolete.
 m4_version_prereq([2.70], [:], [AC_PROG_CC_C99])
 
-default_browser=xdg-open
+default_browser=open
 have_vhost=no
 case $host_os in
  *linux* | *gnu* | *nacl*)
