@@ -137,8 +137,8 @@ AC_ARG_WITH([external-browser],
 if test "$with_external_browser" = "yes" || test "$with_external_browser" = ""; then
    if test "$default_browser" != ""; then
       AC_MSG_CHECKING([for ${default_browser}])
-			# todo: only assume "yes" on mac, because "open" is always available
-      AC_PATH_PROG(with_external_browser, ${default_browser}, yes)
+			# todo: only assume "open" on mac, because "open" is always available
+      AC_PATH_PROG(with_external_browser, ${default_browser}, /usr/bin/open)
    else
       with_external_browser=no
    fi
