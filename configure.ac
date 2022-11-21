@@ -37,7 +37,7 @@ AC_PROG_CC
 # compilers if you want C99 support. Starting with 2.70, it is obsolete.
 m4_version_prereq([2.70], [:], [AC_PROG_CC_C99])
 
-default_browser=open
+default_browser=xdg-open
 have_vhost=no
 case $host_os in
  *linux* | *gnu* | *nacl*)
@@ -137,7 +137,8 @@ AC_ARG_WITH([external-browser],
 if test "$with_external_browser" = "yes" || test "$with_external_browser" = ""; then
    if test "$default_browser" != ""; then
       AC_MSG_CHECKING([for ${default_browser}])
-      AC_PATH_PROG(with_external_browser, ${default_browser}, no)
+			# todo: only assume "yes" on mac, because "open" is always available
+      AC_PATH_PROG(with_external_browser, ${default_browser}, yes)
    else
       with_external_browser=no
    fi
